@@ -274,7 +274,7 @@
   }
   .kop-surat { display: flex; align-items: center; border-bottom: 3px solid black; padding-bottom: 10px; margin-bottom: 25px; position: relative; }
   .kop-surat::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; border-bottom: 1px solid black; }
-  .logo-kop { width: 90px; height: 90px; object-fit: contain; }
+  .logo-kop { width: 90px; height: 90px; object-fit: contain; background: transparent; mix-blend-mode: multiply; }
   .teks-kop { flex: 1; text-align: center; }
   .teks-kop .kementerian { font-size: 12pt; }
   .teks-kop .universitas { font-size: 15pt; font-weight: bold; letter-spacing: 0.5px; }
@@ -318,6 +318,13 @@
     .kertas-a4 { box-shadow: none !important; margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: 100% !important; min-height: auto !important; }
     .tabel-cpl-cetak th { background-color: #e2e2e2 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     @page { size: A4 portrait; margin: 15mm; }
+    .logo-kop {
+      background: transparent !important;
+      mix-blend-mode: multiply !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .kop-surat { background: white !important; }
   }
 </style>
 </head>
@@ -329,7 +336,7 @@
     <div class="header-text">
       <h1>EVALUASI CAPAIAN PEMBELAJARAN LULUSAN (CPL)</h1>
       <p>Program Studi Spesialis Penyakit Dalam &bull; FK UNUD / RSUP Prof. Dr. I.G.N.G Ngoerah</p>
-      <p>Developed by Mer 2026©️</p>
+      <p>Developed by Mer 2026©️ </p>
     </div>
   </div>
 </header>
@@ -1106,7 +1113,7 @@ function renderRingkasan() {
   const today = new Date().toLocaleDateString('id-ID', {day:'2-digit',month:'long',year:'numeric'});
   let screenHTML = `
     <div class="flex-between">
-      <div class="section-title" style="margin-bottom:0"> Ringkasan CPL Per Tahap</div>
+      <div class="section-title" style="margin-bottom:0">&#128203; Ringkasan CPL Per Tahap</div>
       <button class="btn btn-primary" onclick="window.print()">&#128438; Cetak Ringkasan</button>
     </div>
     <div class="alert" style="background:white; border-left:4px solid var(--accent-gold);">
@@ -1242,7 +1249,7 @@ function renderLaporan() {
 
   let screenHTML = `
     <div class="flex-between">
-      <div class="section-title" style="margin-bottom:0"> Laporan Akhir CPL</div>
+      <div class="section-title" style="margin-bottom:0">&#128203; Laporan Akhir CPL</div>
       <button class="btn btn-primary" onclick="window.print()">&#128438; Cetak Laporan Akhir</button>
     </div>
 
