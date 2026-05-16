@@ -395,7 +395,7 @@
             Upload Data Excel
             <input type="file" id="uploadExcel" accept=".xlsx,.xls" onchange="importExcel()" style="display:none">
           </label>
-          <button class="btn btn-success" style="background:#0d9488;" onclick="exportExcel()">&#128190; Download Data</button>
+          <button class="btn btn-success" style="background:#0d9488;" onclick="exportExcel()"> Download Data</button>
         </div>
       </div>
     </div>
@@ -423,11 +423,11 @@
   <div id="dashboardVisuals" style="display:none;" class="no-print">
     <div class="chart-grid">
       <div class="chart-card">
-        <div class="section-title">&#128202; Capaian Per CPL (Tahap Utama)</div>
+        <div class="section-title"> Capaian Per CPL (Tahap Utama)</div>
         <div style="height:320px;"><canvas id="barChart"></canvas></div>
       </div>
       <div class="chart-card">
-        <div class="section-title">&#127919; Radar Distribusi Keseluruhan</div>
+        <div class="section-title"> Radar Distribusi Keseluruhan</div>
         <div style="height:320px;"><canvas id="radarChart"></canvas></div>
       </div>
     </div>
@@ -1106,7 +1106,7 @@ function renderRingkasan() {
   const today = new Date().toLocaleDateString('id-ID', {day:'2-digit',month:'long',year:'numeric'});
   let screenHTML = `
     <div class="flex-between">
-      <div class="section-title" style="margin-bottom:0">&#128203; Ringkasan CPL Per Tahap</div>
+      <div class="section-title" style="margin-bottom:0"> Ringkasan CPL Per Tahap</div>
       <button class="btn btn-primary" onclick="window.print()">&#128438; Cetak Ringkasan</button>
     </div>
     <div class="alert" style="background:white; border-left:4px solid var(--accent-gold);">
@@ -1242,7 +1242,7 @@ function renderLaporan() {
 
   let screenHTML = `
     <div class="flex-between">
-      <div class="section-title" style="margin-bottom:0">&#128203; Laporan Akhir CPL</div>
+      <div class="section-title" style="margin-bottom:0"> Laporan Akhir CPL</div>
       <button class="btn btn-primary" onclick="window.print()">&#128438; Cetak Laporan Akhir</button>
     </div>
 
@@ -1262,11 +1262,11 @@ function renderLaporan() {
 
       <div class="laporan-chart-area">
         <div class="laporan-chart-box">
-          <h4>&#128202; Capaian Per CPL (Tahap 1-3)</h4>
+          <h4> Capaian Per CPL (Tahap 1-3)</h4>
           <div style="height:160px;"><canvas id="laporanBarChart"></canvas></div>
         </div>
         <div class="laporan-chart-box">
-          <h4>&#127919; Radar Kompetensi</h4>
+          <h4> Radar Kompetensi</h4>
           <div style="height:160px;"><canvas id="laporanRadarChart"></canvas></div>
         </div>
       </div>
