@@ -69,6 +69,11 @@
   .btn-outline { background: transparent; color: var(--blue-primary); border: 1.5px solid var(--blue-primary); }
   .btn-outline:hover { background: var(--blue-primary); color: white; }
   .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; align-items: center; justify-content: space-between; }
+  .btn-drive { background: linear-gradient(135deg, #1967d2, #1557b0); box-shadow: 0 4px 12px rgba(25,103,210,0.3); }
+  .btn-drive:hover { background: linear-gradient(135deg, #1557b0, #0d47a1); transform: translateY(-2px); }
+  .submit-bar { background: white; border-radius: 12px; border: 2px solid #e8edf5; padding: 18px 24px; margin-top: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; box-shadow: 0 2px 8px rgba(10,22,40,0.08); }
+  .submit-bar-info { font-size: 0.88rem; color: var(--gray-600); }
+  .submit-bar-info strong { color: var(--blue-primary); }
 
   /* STATS */
   .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-bottom: 20px; }
@@ -103,16 +108,16 @@
   .matrix-table thead tr:last-child th {
     position: sticky; top: 220px; z-index: 10;
     background: var(--navy-mid); color: white;
-    padding: 8px 6px;
+    padding: 8px 5px;
   }
 
   /* Two-row header approach */
   .mk-header-cell {
     height: 220px;
-    min-width: 62px;
-    max-width: 80px;
+    min-width: 58px;
+    max-width: 75px;
     vertical-align: bottom;
-    padding: 8px 4px !important;
+    padding: 8px 5px 6px !important;
     background: var(--blue-primary);
   }
   .mk-name-wrapper {
@@ -130,9 +135,9 @@
   /* Checkbox header row */
   .check-header-cell {
     background: var(--navy-mid) !important;
-    padding: 8px 6px !important;
-    min-width: 62px;
-    max-width: 80px;
+    padding: 8px 5px !important;
+    min-width: 58px;
+    max-width: 75px;
     height: 40px;
     border-top: 2px solid var(--accent-gold) !important;
     position: sticky;
@@ -274,7 +279,7 @@
   }
   .kop-surat { display: flex; align-items: center; border-bottom: 3px solid black; padding-bottom: 10px; margin-bottom: 25px; position: relative; }
   .kop-surat::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; border-bottom: 1px solid black; }
-  .logo-kop { width: 90px; height: 90px; object-fit: contain; background: white; mix-blend-mode: multiply; }
+  .logo-kop { width: 90px; height: 90px; object-fit: contain; background: white !important; border-radius: 4px; padding: 2px; }
   .teks-kop { flex: 1; text-align: center; }
   .teks-kop .kementerian { font-size: 12pt; }
   .teks-kop .universitas { font-size: 15pt; font-weight: bold; letter-spacing: 0.5px; }
@@ -287,8 +292,10 @@
   .tabel-cpl-cetak { width: 100%; border-collapse: collapse; font-size: 10.5pt; margin-bottom: 25px; page-break-inside: avoid; }
   .tabel-cpl-cetak th, .tabel-cpl-cetak td { border: 1px solid black; padding: 8px 10px; }
   .tabel-cpl-cetak th { background-color: #f2f2f2 !important; font-weight: bold; text-align: center; }
-  .ttd-container { display: flex; justify-content: space-between; margin-top: 30px; font-size: 11pt; page-break-inside: avoid; }
+  .ttd-container { display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 20px; font-size: 10.5pt; page-break-inside: avoid; gap: 0; }
   .ttd-box { text-align: center; width: 45%; }
+  .ttd-box.ttd-bottom { width: 100%; display: flex; flex-direction: column; align-items: center; margin-top: 20px; }
+  .ttd-box.ttd-bottom-inner { width: 45%; text-align: center; }
   .ttd-box p { margin: 2px 0; }
 
   /* Laporan Akhir - Screen Preview Card */
@@ -308,6 +315,11 @@
   .laporan-chart-box { background: var(--off-white); border-radius: 10px; padding: 12px 14px; border: 1px solid var(--gray-100); }
   .laporan-chart-box h4 { font-size: 0.82rem; font-weight: 700; color: var(--blue-primary); margin-bottom: 8px; }
 
+  .cell-mapped { cursor: default; background: #f0f7ff; }
+  .cell-checked { background: #dcfce7 !important; text-align: center; }
+  .cell-tick { color: #16a34a; font-size: 1.1rem; font-weight: 900; }
+  .matrix-table td.cell-mapped, .matrix-table td.cell-checked { padding: 6px 4px; }
+
   @media print {
     body { background: white !important; margin: 0 !important; padding: 0 !important; }
     .no-print, .app-header, .nav-tabs { display: none !important; }
@@ -315,16 +327,20 @@
     .tab-pane { display: none !important; }
     .tab-pane.active { display: block !important; }
     .print-only { display: block !important; }
-    .kertas-a4 { box-shadow: none !important; margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: 100% !important; min-height: auto !important; }
+    .kertas-a4 { box-shadow: none !important; margin: 0 !important; padding: 10mm 15mm !important; width: 100% !important; max-width: 100% !important; min-height: 0 !important; overflow: hidden !important; }
+    .tab-pane#tab-ringkasan, .tab-pane#tab-laporan { padding: 0 !important; margin: 0 !important; }
+    #ringkasanScreen { display: none !important; }
+    #laporanScreen { display: none !important; }
+    .laporan-preview { display: none !important; }
+    h2.judul-laporan { margin-top: 6px !important; margin-bottom: 8px !important; }
+    .tabel-biodata { margin-bottom: 6px !important; }
+    .tabel-cpl-cetak { margin-top: 0 !important; page-break-inside: auto !important; }
+    .kertas-a4 h3 { margin-top: 6px !important; margin-bottom: 4px !important; page-break-after: avoid !important; page-break-before: avoid !important; }
+    .kop-surat { margin-bottom: 10px !important; }
+    .judul-laporan { margin-bottom: 8px !important; }
     .tabel-cpl-cetak th { background-color: #e2e2e2 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     @page { size: A4 portrait; margin: 15mm; }
-    .logo-kop {
-      background: white !important;
-      mix-blend-mode: multiply !important;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-    .kop-surat { background: white !important; }
+    .logo-kop { background: white !important; border-radius: 4px !important; padding: 2px !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 </style>
 </head>
@@ -336,7 +352,7 @@
     <div class="header-text">
       <h1>EVALUASI CAPAIAN PEMBELAJARAN LULUSAN (CPL)</h1>
       <p>Program Studi Spesialis Penyakit Dalam &bull; FK UNUD / RSUP Prof. Dr. I.G.N.G Ngoerah</p>
-      <p>Developed by Mer 2026©️ </p>
+      <p>Developed by Mer 2026©️</p>
     </div>
   </div>
 </header>
@@ -402,7 +418,7 @@
             Upload Data Excel
             <input type="file" id="uploadExcel" accept=".xlsx,.xls" onchange="importExcel()" style="display:none">
           </label>
-          <button class="btn btn-success" style="background:#0d9488;" onclick="exportExcel()"> Download Data</button>
+          <button class="btn btn-success" style="background:#0d9488;" onclick="exportExcel()">&#128190; Download Data</button>
         </div>
       </div>
     </div>
@@ -430,11 +446,11 @@
   <div id="dashboardVisuals" style="display:none;" class="no-print">
     <div class="chart-grid">
       <div class="chart-card">
-        <div class="section-title"> Capaian Per CPL (Tahap Utama)</div>
+        <div class="section-title">&#128202; Capaian Per CPL (Tahap Utama)</div>
         <div style="height:320px;"><canvas id="barChart"></canvas></div>
       </div>
       <div class="chart-card">
-        <div class="section-title"> Radar Distribusi Keseluruhan</div>
+        <div class="section-title">&#127919; Radar Distribusi Keseluruhan</div>
         <div style="height:320px;"><canvas id="radarChart"></canvas></div>
       </div>
     </div>
@@ -463,6 +479,19 @@
   </div>
 
   <div id="matrixContainer"></div>
+
+  <div class="submit-bar" id="submitBar">
+    <div class="submit-bar-info">
+      <strong>&#128228; Submit Evaluasi ke Google Drive</strong><br>
+      Klik tombol Submit untuk mengunduh file Excel dengan nama residen, lalu Google Drive terbuka otomatis.
+    </div>
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="btn btn-success" onclick="exportExcel()">&#128190; Download Excel (Semua)</button>
+      <button class="btn btn-drive" onclick="submitToDrive()">
+        &#128640; Submit &amp; Buka Drive
+      </button>
+    </div>
+  </div>
 </div>
 
 <!-- ========== TAB RINGKASAN ========== -->
@@ -758,22 +787,22 @@ const RESIDENTS = [
 ];
 
 const CPL_DESC = [
-  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, rehabilitasi pasien di bidang penyakit endokrin, metabolik, dan diabetes.',
-  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, rehabilitasi pasien di bidang penyakit reumatologi.',
-  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, rehabilitasi pasien di bidang penyakit hematologi dan onkologi medik.',
-  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, rehabilitasi pasien di bidang penyakit geriatrik.',
-  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, rehabilitasi pasien di bidang penyakit pulmonologi dan medik kritis.',
-  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, rehabilitasi pasien di bidang penyakit tropik-infeksi dan travel medicine.',
-  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, rehabilitasi pasien di bidang penyakit gastroentero-hepatologi.',
-  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, rehabilitasi pasien di bidang penyakit ginjal dan hipertensi.',
-  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, rehabilitasi pasien di bidang penyakit alergi dan imunologi klinik.',
-  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, rehabilitasi pasien di bidang penyakit kardiologi dan kedokteran vaskular.',
-  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, rehabilitasi pasien di bidang penyakit psikosomatik.',
-  'Mampu menginternalisasi dan menerapkan nilai-nilai Tri Hita Karana, menjunjung tinggi etika, profesionalisme, integritas, serta menghormati keberagaman budaya.',
-  'Mampu mengembangkan, mengajarkan, dan menyebarluaskan ilmu kedokteran penyakit dalam melalui kegiatan pendidikan, penelitian, dan publikasi ilmiah.',
-  'Mampu merancang, melaksanakan, dan mengelola penelitian ilmiah yang inovatif, berbasis bukti, dan berorientasi biomolekular.',
-  'Mampu mengelola, memimpin, dan mengarahkan tim medis secara efektif, efisien, dan berorientasi mutu dalam pelayanan klinik dan organisasi kesehatan.',
-  'Mampu mengimplementasikan dan mengevaluasi kebijakan, prosedur klinis, serta sistem manajemen kesehatan yang berorientasi pada keselamatan pasien.'
+  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, serta rehabilitasi pasien; mengambil keputusan klinis secara mandiri, kritis, dan rasional dengan mengacu pada bukti ilmiah mutakhir dalam situasi klinis yang kompleks, dengan pendekatan komprehensif, terintegrasi, dan profesional di bidang penyakit endokrin, metabolik, dan diabetes.',
+  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, serta rehabilitasi pasien; mengambil keputusan klinis secara mandiri, kritis, dan rasional dengan mengacu pada bukti ilmiah mutakhir dalam situasi klinis yang kompleks, dengan pendekatan komprehensif, terintegrasi, dan profesional di bidang penyakit reumatologi.',
+  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, serta rehabilitasi pasien; mengambil keputusan klinis secara mandiri, kritis, dan rasional dengan mengacu pada bukti ilmiah mutakhir dalam situasi klinis yang kompleks, dengan pendekatan komprehensif, terintegrasi, dan profesional di bidang hematologi dan onkologi medik.',
+  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, serta rehabilitasi pasien; mengambil keputusan klinis secara mandiri, kritis, dan rasional dengan mengacu pada bukti ilmiah mutakhir dalam situasi klinis yang kompleks, dengan pendekatan komprehensif, terintegrasi, dan profesional di bidang geriatrik.',
+  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, serta rehabilitasi pasien; mengambil keputusan klinis secara mandiri, kritis, dan rasional dengan mengacu pada bukti ilmiah mutakhir dalam situasi klinis yang kompleks, dengan pendekatan komprehensif, terintegrasi, dan profesional di bidang pulmonologi dan medik kritis.',
+  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, serta rehabilitasi pasien; mengambil keputusan klinis secara mandiri, kritis, dan rasional dengan mengacu pada bukti ilmiah mutakhir dalam situasi klinis yang kompleks, dengan pendekatan komprehensif, terintegrasi, dan profesional di bidang penyakit tropik-infeksi dan travel medicine.',
+  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, serta rehabilitasi pasien; mengambil keputusan klinis secara mandiri, kritis, dan rasional dengan mengacu pada bukti ilmiah mutakhir dalam situasi klinis yang kompleks, dengan pendekatan komprehensif, terintegrasi, dan profesional di bidang gastroentero-hepatologi.',
+  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, serta rehabilitasi pasien; mengambil keputusan klinis secara mandiri, kritis, dan rasional dengan mengacu pada bukti ilmiah mutakhir dalam situasi klinis yang kompleks, dengan pendekatan komprehensif, terintegrasi, dan profesional di bidang ginjal dan hipertensi.',
+  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, serta rehabilitasi pasien; mengambil keputusan klinis secara mandiri, kritis, dan rasional dengan mengacu pada bukti ilmiah mutakhir dalam situasi klinis yang kompleks, dengan pendekatan komprehensif, terintegrasi, dan profesional di bidang alergi dan imunologi klinik.',
+  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, serta rehabilitasi pasien; mengambil keputusan klinis secara mandiri, kritis, dan rasional dengan mengacu pada bukti ilmiah mutakhir dalam situasi klinis yang kompleks, dengan pendekatan komprehensif, terintegrasi, dan profesional di bidang kardiologi dan kedokteran vaskular.',
+  'Mampu menerapkan pengetahuan klinis dan teknologi terkini dalam melakukan diagnosis, penatalaksanaan, serta rehabilitasi pasien; mengambil keputusan klinis secara mandiri, kritis, dan rasional dengan mengacu pada bukti ilmiah mutakhir dalam situasi klinis yang kompleks, dengan pendekatan komprehensif, terintegrasi, dan profesional di bidang psikosomatik.',
+  'Mampu menginternalisasi dan menerapkan nilai-nilai Tri Hita Karana, menjunjung tinggi etika, profesionalisme, integritas, serta menghormati keberagaman budaya pasien dan sejawat dalam praktik klinis dan penelitian.',
+  'Mampu mengembangkan, mengajarkan, dan menyebarluaskan ilmu kedokteran penyakit dalam melalui kegiatan pendidikan, penelitian, dan publikasi ilmiah berbasis bukti, dengan menjunjung tinggi etika akademik dan profesionalisme.',
+  'Mampu merancang, melaksanakan, dan mengelola penelitian ilmiah yang inovatif, berbasis bukti, dan berorientasi biomolekular untuk menghasilkan publikasi nasional maupun internasional yang berkontribusi pada pengembangan ilmu penyakit dalam, kedokteran translasi, dan kesehatan masyarakat.',
+  'Mampu mengelola, memimpin, dan mengarahkan tim medis secara efektif, efisien, dan berorientasi mutu dalam pelayanan klinik dan organisasi kesehatan, serta mampu mengoptimalkan sumber daya yang tersedia.',
+  'Mampu mengimplementasikan dan mengevaluasi kebijakan, prosedur klinis, serta sistem manajemen kesehatan yang berorientasi pada keselamatan pasien dan peningkatan mutu institusi pelayanan kesehatan.'
 ];
 
 const CPL_SHORT = [
@@ -786,32 +815,71 @@ const CPL_SHORT = [
 const MK_TAHAP = {
   1: ['Filsafat Ilmu','Biologi Molekuler','Metode Penelitian','Statistik','EBM','Ketrampilan Diagnosis Dasar 1','Kegawatdaruratan Dasar 1','Konsultasi Medis Dasar','Tatalaksana Pasien Rawat Inap 1','Penyusunan Laporan Kasus','Penyusunan Proposal 1','Penyusunan Proposal dan Ujian Proposal','Penyusunan Tinjauan Kepustakaan 1','Travel Medicine','Keterampilan Diagnosis Dasar Klinis 2','Mikrobiologi','Patologi Klinik','Radiologi','Nutrisi Klinik','Farmakologi Klinis','Tatalaksana Pasien Rawat Inap 2','Pengmas Semester 1-2'],
   2: ['Psikosomatik','Gastroenterohepatologi','Kardiologi','HOM','Rematologi','Imunologi','Tropik Infeksi','Endokrin','Pulmonologi','Geriatri','Travel Medicine','Konsul Tahap II','Karya Ilmiah','Ginjal dan Hipertensi','Pengmas Semester 3-4','Pengmas Semester 5-6','Gawat Darurat 3'],
-  3: ['Gadar dan Intensive Care','Tatalaksana Pasien Rawat Jalan Tahap 3','Tatalaksana Pasien Rawat Inap Lanjut 3','Tugas Mandiri 3','Modul Komprehensif Akhir 3','Pengmas Semester 7-8','Tugas Akhir 3']
+  3: ['Gadar dan Intensive Care','Tatalaksana Pasien Rawat Jalan','Tatalaksana Pasien Rawat Inap Lanjut','Tugas Mandiri','Modul Komprehensif Akhir','Pengmas Semester 7-8','Tugas Akhir']
 };
 
 const CPL_MK = {
   1: {
-    0: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21], 1: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21], 2: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21], 3: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21],
-    4: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21], 5: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21], 6: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21], 7: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21],
-    8: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21], 9: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21], 10:[0,1,4,5,7,8,13,14,15,16,17,18,19,20,21], 11:[0,5,6,7,9,10,11,12,13,14,15,17,18,19,20,21],
-    12:[9,10,11,12,16,21], 13:[2,3,9,10,11,12,17,18], 14:[6,7,8,18,19], 15:[7,8,20,21]
+    0: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21],
+    1: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21],
+    2: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21],
+    3: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21],
+    4: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21],
+    5: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21],
+    6: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21],
+    7: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21],
+    8: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21],
+    9: [0,1,4,5,6,7,8,13,14,15,16,17,18,19,20,21],
+    10: [0,1,4,5,7,8,13,14,15,16,17,18,19,20,21],
+    11: [0,6,7,8,9,10,11,12,13,14,15,17,18,19,20,21],
+    12: [9,10,11,12,16,21],
+    13: [2,3,9,10,11,12,18,19],
+    14: [6,7,8,18,19,20,21],
+    15: [7,8,20,21]
   },
   2: {
-    0: [7,10,11,12,14,15,16], 1: [4,10,11,12,14,15,16], 2: [3,10,11,12,14,15,16], 3: [9,10,11,12,14,15,16], 4: [8,10,11,12,14,15,16], 5: [6,10,11,12,14,15,16],
-    6: [1,10,11,12,14,15,16], 7: [10,11,12,13,14,15,16], 8: [5,10,11,12,14,15,16], 9: [2,10,11,12,14,15,16], 10:[0,10,11,12,14,15,16], 11:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
-    12:[12,13,14,15], 13:[1,2,3,4,5,6,7,8,9,12,13,14,15], 14:[0,1,2,3,4,5,6,7,8,9,13,14,15,16], 15:[0,1,2,3,10,11,13,14,15,16]
+    0: [7,10,11,12,14,15,16],
+    1: [4,10,11,12,14,15,16],
+    2: [3,10,11,12,14,15,16],
+    3: [9,10,11,12,14,15,16],
+    4: [8,10,11,12,14,15,16],
+    5: [6,10,11,12,14,15,16],
+    6: [1,10,11,12,14,15,16],
+    7: [10,11,12,13,14,15,16],
+    8: [5,10,11,12,14,15,16],
+    9: [2,10,11,12,14,15,16],
+    10: [0,10,11,12,14,15,16],
+    11: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
+    12: [12,13,14,15],
+    13: [1,2,3,4,5,6,7,8,9,12,13,14,15],
+    14: [0,1,2,3,4,5,6,7,8,9,13,14,15,16],
+    15: [0,1,2,3,10,11,13,14,15,16]
   },
   3: {
-    0: [0,1,2,3,4,5], 1: [0,1,2,3,4,5], 2: [0,1,2,3,4,5], 3: [0,1,2,3,4,5], 4: [0,1,2,3,4,5], 5: [0,1,2,3,4,5], 6: [0,1,2,3,4,5], 7: [0,1,2,3,4,5],
-    8: [0,1,2,3,4,5], 9: [0,1,2,3,4,5], 10:[0,1,2,3,4,5], 11:[4,5], 12:[5,6], 13:[5,6], 14:[0], 15:[0]
+    0: [0,1,2,3,4,5],
+    1: [0,1,2,3,4,5],
+    2: [0,1,2,3,4,5],
+    3: [0,1,2,3,4,5],
+    4: [0,1,2,3,4,5],
+    5: [0,1,2,3,4,5],
+    6: [0,1,2,3,4,5],
+    7: [0,1,2,3,4,5],
+    8: [0,1,2,3,4,5],
+    9: [0,1,2,3,4,5],
+    10: [0,1,2,3,4,5],
+    11: [4,5],
+    12: [5,6],
+    13: [5,6],
+    14: [0],
+    15: [0]
   }
 };
 
 const STAGE_CONFIG = {
-  '1A': { base: 1, start: 0, end: 4, name: 'Tahap 1A' },
-  '1B': { base: 1, start: 5, end: 21, name: 'Tahap 1B' },
-  '2A': { base: 2, start: 0, end: 6, name: 'Tahap 2A' },
-  '2B': { base: 2, start: 7, end: 16, name: 'Tahap 2B' },
+  '1A': { base: 1, start: 0, end: 10, name: 'Tahap 1A' },
+  '1B': { base: 1, start: 11, end: 21, name: 'Tahap 1B' },
+  '2A': { base: 2, start: 0, end: 10, name: 'Tahap 2A' },
+  '2B': { base: 2, start: 11, end: 16, name: 'Tahap 2B' },
   '3':  { base: 3, start: 0, end: 6, name: 'Tahap 3' }
 };
 
@@ -1020,7 +1088,6 @@ function renderMatrix(subStageKey) {
   const mkListAll = MK_TAHAP[t];
   const disabledAttr = (currentResiden && currentResiden.nim) ? '' : 'disabled';
 
-  // Two-row header: Row 1 = MK names (vertical), Row 2 = checkboxes
   let html = `<div class="matrix-wrapper"><table class="matrix-table">
     <thead>
       <tr>
@@ -1031,23 +1098,22 @@ function renderMatrix(subStageKey) {
                <span class="mk-name-wrapper">${mkListAll[m]}</span>
              </th>`;
   }
-  html += `</tr>
-      <tr>`;
+  html += `</tr><tr>`;
 
-  // Second row: "Check All" checkboxes
+  // Second row: "Check All" (auto-fill) buttons
   for (let m = config.start; m <= config.end; m++) {
     html += `<th class="check-header-cell" title="Centang semua CPL untuk: ${mkListAll[m]}">
                <input type="checkbox" class="checkbox-all" ${disabledAttr} onchange="toggleAllInColumn(${t}, ${m}, this)" title="Pilih semua">
              </th>`;
   }
-  html += `</tr>
-    </thead>
-    <tbody>`;
+  html += `</tr></thead><tbody>`;
 
   for (let c = 0; c < 16; c++) {
     const validMKs = CPL_MK[t][c] || [];
     const adaMKDiSubTahap = validMKs.some(m => m >= config.start && m <= config.end);
     if (!adaMKDiSubTahap) continue;
+
+    const nim = currentResiden ? currentResiden.nim : '';
 
     html += `<tr><td class="sticky-col">
       <span class="cpl-code">CPL ${c+1}: ${CPL_SHORT[c]}</span>
@@ -1056,9 +1122,16 @@ function renderMatrix(subStageKey) {
 
     for (let m = config.start; m <= config.end; m++) {
       if (validMKs.includes(m)) {
-        const nim = currentResiden ? currentResiden.nim : '';
-        const isChecked = (nim && resiData[nim] && resiData[nim][t] && resiData[nim][t][`${c}_${m}`]) ? 'checked' : '';
-        html += `<td><input type="checkbox" class="checkbox-lg chk-col-${m}" data-cpl="${c}" ${disabledAttr} ${isChecked} onchange="toggleCPLMK(${t}, ${c}, ${m}, this)"></td>`;
+        // Mapped cell: show check indicator based on resiData
+        const isChecked = (nim && resiData[nim] && resiData[nim][t] && resiData[nim][t][`${c}_${m}`]);
+        if (isChecked) {
+          html += `<td class="cell-mapped cell-checked" data-t="${t}" data-c="${c}" data-m="${m}">
+                     <span class="cell-tick">✓</span>
+                   </td>`;
+        } else {
+          html += `<td class="cell-mapped" data-t="${t}" data-c="${c}" data-m="${m}">
+                   </td>`;
+        }
       } else {
         html += `<td class="disabled-cell"></td>`;
       }
@@ -1069,17 +1142,7 @@ function renderMatrix(subStageKey) {
   container.innerHTML = html;
 }
 
-function toggleCPLMK(tahap, cplIdx, mkIdx, checkbox) {
-  if (!currentResiden || !currentResiden.nim) {
-    alert('Silakan pilih residen terlebih dahulu!');
-    checkbox.checked = !checkbox.checked; return;
-  }
-  const nim = currentResiden.nim;
-  if (!resiData[nim]) resiData[nim] = {};
-  if (!resiData[nim][tahap]) resiData[nim][tahap] = {};
-  resiData[nim][tahap][`${cplIdx}_${mkIdx}`] = checkbox.checked;
-  updateDashboardStats();
-}
+// toggleCPLMK removed - cells are now auto-filled
 
 function toggleAllInColumn(tahap, mkIdx, masterCheckbox) {
   if (!currentResiden || !currentResiden.nim) {
@@ -1090,11 +1153,17 @@ function toggleAllInColumn(tahap, mkIdx, masterCheckbox) {
   const nim = currentResiden.nim;
   if (!resiData[nim]) resiData[nim] = {};
   if (!resiData[nim][tahap]) resiData[nim][tahap] = {};
-  document.querySelectorAll(`.chk-col-${mkIdx}`).forEach(cb => {
-    if (!cb.disabled) {
-      cb.checked = isChecked;
-      const cplIdx = cb.getAttribute('data-cpl');
-      resiData[nim][tahap][`${cplIdx}_${mkIdx}`] = isChecked;
+
+  // Update all mapped cells for this column
+  document.querySelectorAll(`td.cell-mapped[data-t="${tahap}"][data-m="${mkIdx}"]`).forEach(td => {
+    const cplIdx = td.getAttribute('data-c');
+    resiData[nim][tahap][`${cplIdx}_${mkIdx}`] = isChecked;
+    if (isChecked) {
+      td.classList.add('cell-checked');
+      td.innerHTML = '<span class="cell-tick">✓</span>';
+    } else {
+      td.classList.remove('cell-checked');
+      td.innerHTML = '';
     }
   });
   updateDashboardStats();
@@ -1152,7 +1221,7 @@ function renderRingkasan() {
         </tr></thead>
         <tbody>${screenRows}</tbody>
       </table></div>`;
-    printHTMLContent += `<h3 style="margin-top:30px;margin-bottom:10px;font-size:11pt;border-bottom:2px solid #000;padding-bottom:5px;">Tahap ${t} &mdash; ${tuntasCount}/${totalCPL} CPL Tuntas</h3>
+    printHTMLContent += `<h3 style="margin-top:4px;margin-bottom:4px;font-size:11pt;border-bottom:2px solid #000;padding-bottom:3px;page-break-before:avoid;page-break-after:avoid;">Tahap ${t} &mdash; ${tuntasCount}/${totalCPL} CPL Tuntas</h3>
       <table class="tabel-cpl-cetak">
         <thead><tr><th width="12%">Kode CPL</th><th width="70%">Deskripsi CPL</th><th width="18%">Status</th></tr></thead>
         <tbody>${printRows}</tbody>
@@ -1180,12 +1249,17 @@ function renderRingkasan() {
     </table>
     ${printHTMLContent}
     <div class="ttd-container">
-      <div class="ttd-box"><p>Mengetahui,</p><p>Ketua Program Studi Spesialis Penyakit Dalam</p><br><br><br><br>
-        <p style="text-decoration:underline;font-weight:bold;">Dr. dr. I Ketut Mariadi, SpPD, K-GEH, FACG, FINASIM</p>
-        <p>NIP. 197301162003122001</p></div>
       <div class="ttd-box"><p>Denpasar, ${today}</p><p>Pembimbing Akademik,</p><br><br><br><br>
         <p style="text-decoration:underline;font-weight:bold;">${pembimbing||'( _________________________ )'}</p>
-        <p>NIP. ${nipPembimbing||'........................................'}</p></div>
+        <p>NIP. ${nipPembimbing||'..............................'}</p></div>
+      <div class="ttd-box"><p>Denpasar, ${today}</p><p>Penanggungjawab Pendidikan,</p><br><br><br><br>
+        <p style="text-decoration:underline;font-weight:bold;">dr. Dwijo Anargha Sindhughosa, SpPD</p>
+        <p>NIP. 199209212024061001</p></div>
+      <div class="ttd-bottom" style="width:100%;display:flex;justify-content:center;margin-top:20px;">
+        <div class="ttd-box" style="width:45%;text-align:center;"><p>Denpasar, ${today}</p><p>Koordinator Program Studi,</p><br><br><br><br>
+          <p style="text-decoration:underline;font-weight:bold;">Dr. dr. I Ketut Mariadi, SpPD, K-GEH, FACG, FINASIM</p>
+          <p>NIP. 197810222010121002</p></div>
+      </div>
     </div>
   </div>`;
 }
@@ -1269,11 +1343,11 @@ function renderLaporan() {
 
       <div class="laporan-chart-area">
         <div class="laporan-chart-box">
-          <h4> Capaian Per CPL (Tahap 1-3)</h4>
+          <h4>&#128202; Capaian Per CPL (Tahap 1-3)</h4>
           <div style="height:160px;"><canvas id="laporanBarChart"></canvas></div>
         </div>
         <div class="laporan-chart-box">
-          <h4> Radar Kompetensi</h4>
+          <h4>&#127919; Radar Kompetensi</h4>
           <div style="height:160px;"><canvas id="laporanRadarChart"></canvas></div>
         </div>
       </div>
@@ -1400,12 +1474,17 @@ function renderLaporan() {
       <tbody>${printRows}</tbody>
     </table>
     <div class="ttd-container">
-      <div class="ttd-box"><p>Mengetahui,</p><p>Ketua Program Studi Spesialis Penyakit Dalam</p><br><br><br><br>
-        <p style="text-decoration:underline;font-weight:bold;">Dr. dr. I Ketut Mariadi, SpPD, K-GEH, FACG, FINASIM</p>
-        <p>NIP. 197301162003122001</p></div>
       <div class="ttd-box"><p>Denpasar, ${today}</p><p>Pembimbing Akademik,</p><br><br><br><br>
         <p style="text-decoration:underline;font-weight:bold;">${pembimbing||'( _________________________ )'}</p>
-        <p>NIP. ${nipPembimbing||'........................................'}</p></div>
+        <p>NIP. ${nipPembimbing||'..............................'}</p></div>
+      <div class="ttd-box"><p>Denpasar, ${today}</p><p>Penanggungjawab Pendidikan,</p><br><br><br><br>
+        <p style="text-decoration:underline;font-weight:bold;">dr. Dwijo Anargha Sindhughosa, SpPD</p>
+        <p>NIP. 199209212024061001</p></div>
+      <div class="ttd-bottom" style="width:100%;display:flex;justify-content:center;margin-top:20px;">
+        <div class="ttd-box" style="width:45%;text-align:center;"><p>Denpasar, ${today}</p><p>Koordinator Program Studi,</p><br><br><br><br>
+          <p style="text-decoration:underline;font-weight:bold;">Dr. dr. I Ketut Mariadi, SpPD, K-GEH, FACG, FINASIM</p>
+          <p>NIP. 197810222010121002</p></div>
+      </div>
     </div>
   </div>`;
 }
@@ -1413,8 +1492,8 @@ function renderLaporan() {
 // ============================================================
 // EXPORT EXCEL
 // ============================================================
-function exportExcel() {
-  if (!window.XLSX) { alert('Library Excel belum dimuat.'); return; }
+function buildWorkbook() {
+  if (!window.XLSX) { alert('Library Excel belum dimuat.'); return null; }
   const wb = XLSX.utils.book_new();
   [1,2,3].forEach(t => {
     const mkList = MK_TAHAP[t];
@@ -1441,7 +1520,49 @@ function exportExcel() {
     });
     XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(sheetData), `Evaluasi Tahap ${t}`);
   });
+  return wb;
+}
+
+function exportExcel() {
+  const wb = buildWorkbook();
+  if (!wb) return;
   XLSX.writeFile(wb, 'Evaluasi_Matriks_CPL_IPD.xlsx');
+}
+
+function submitToDrive() {
+  if (!currentResiden || !currentResiden.nim) {
+    alert('Harap pilih residen terlebih dahulu sebelum submit!');
+    return;
+  }
+  const wb = buildWorkbook();
+  if (!wb) return;
+
+  // Filename: CPL_[NamaResiden]_[NIM]
+  const namaClean = currentResiden.name.replace(/[^a-zA-Z0-9\s]/g,'').replace(/\s+/g,'_').trim();
+  const nimClean = currentResiden.nim.replace(/\s+/g,'');
+  const fileName = `CPL_${namaClean}_${nimClean}.xlsx`;
+
+  // Trigger download
+  XLSX.writeFile(wb, fileName);
+
+  // Open Drive after brief delay so browser processes download first
+  setTimeout(() => { window.open('https://drive.google.com/drive/folders/1N6xg-1gMyvx_R2usInUOueVp-jUu9TFH?usp=sharing', '_blank'); }, 800);
+
+  showToast(`✓ File "${fileName}" diunduh. Google Drive terbuka — silakan upload file tersebut ke folder Drive.`);
+}
+
+function showToast(msg) {
+  let toast = document.getElementById('toastNotif');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toastNotif';
+    toast.style.cssText = 'position:fixed;bottom:28px;right:28px;background:#1a3a6b;color:white;padding:14px 20px;border-radius:10px;font-size:0.88rem;max-width:380px;line-height:1.5;box-shadow:0 6px 20px rgba(0,0,0,0.25);z-index:9999;transition:opacity 0.4s;';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.style.opacity = '1';
+  clearTimeout(toast._timeout);
+  toast._timeout = setTimeout(() => { toast.style.opacity = '0'; }, 6000);
 }
 
 function importExcel() {
