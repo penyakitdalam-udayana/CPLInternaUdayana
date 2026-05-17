@@ -404,8 +404,7 @@
           <select class="form-control" id="selectTahapDashboard">
             <option value="1A">Tahap 1A</option>
             <option value="1B">Tahap 1B</option>
-            <option value="2A">Tahap 2A</option>
-            <option value="2B">Tahap 2B</option>
+            <option value="2">Tahap 2</option>
             <option value="3">Tahap 3</option>
           </select>
         </div>
@@ -454,7 +453,11 @@
       </div>
     </div>
   </div>
-          <p>Developed by Mer 2026©️</p>
+  <div class="no-print" style="margin-top: 32px; padding: 0 4px;">
+    <p style="color: var(--blue-primary); font-size: 0.82rem; font-weight: 500; opacity: 0.75;">
+      Developed by Mer 2026 ©️
+    </p>
+  </div>
 </div>
 
 <!-- ========== TAB EVALUASI ========== -->
@@ -469,8 +472,7 @@
   <div class="stage-tabs">
     <div class="stage-tab active" data-stage="1A" onclick="filterStage('1A')">Tahap 1A</div>
     <div class="stage-tab" data-stage="1B" onclick="filterStage('1B')">Tahap 1B</div>
-    <div class="stage-tab" data-stage="2A" onclick="filterStage('2A')">Tahap 2A</div>
-    <div class="stage-tab" data-stage="2B" onclick="filterStage('2B')">Tahap 2B</div>
+    <div class="stage-tab" data-stage="2" onclick="filterStage('2')">Tahap 2</div>
     <div class="stage-tab" data-stage="3" onclick="filterStage('3')">Tahap 3</div>
   </div>
 
@@ -878,8 +880,7 @@ const CPL_MK = {
 const STAGE_CONFIG = {
   '1A': { base: 1, start: 0, end: 10, name: 'Tahap 1A' },
   '1B': { base: 1, start: 11, end: 21, name: 'Tahap 1B' },
-  '2A': { base: 2, start: 0, end: 10, name: 'Tahap 2A' },
-  '2B': { base: 2, start: 11, end: 16, name: 'Tahap 2B' },
+  '2':  { base: 2, start: 0, end: 16, name: 'Tahap 2' },
   '3':  { base: 3, start: 0, end: 6, name: 'Tahap 3' }
 };
 
