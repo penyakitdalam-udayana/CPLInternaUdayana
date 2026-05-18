@@ -1843,50 +1843,75 @@ function importExcel() {
 </script>
 
 <script>
-  const dosenData = [
-      { nama: 'Prof. Dr. dr. Ketut Suega, Sp.PD.,K-HOM, FINASIM', nip: '195704061983121001' },
-      { nama: 'Dr. dr. I Wayan Losen Adnyana, Sp.PD-KHOM, FINASIM', nip: '197101192000121002' },
-      { nama: 'Dr. dr. Ni Made Renny Anggreni Rena, Sp.PD-KHOM, FINASIM', nip: '197807072009122001' },
-      { nama: 'dr. Ngakan Ketut Wira Suastika, M.Biomed., SpPD, K-HOM, FINASIM', nip: '198203032010081001' },
-      { nama: 'dr. Putu Imayati, Sp.PD, FINASIM', nip: '261211566' },
-      { nama: 'dr. I Gede Ketut Sajinadiyasa,SpPD-KP,FINASIM', nip: '196805161999031001' },
-      { nama: 'dr. Putu Andrika, SpPD, K-P, K-IC', nip: '196405251990031006' },
-      { nama: 'Dr. dr. I Gusti Ngurah Bagus Artana, SpPD, K-P, FINASIM', nip: '197911102012121002' },
-      { nama: 'Prof. Dr. dr. I Gde Raka Widiana, Sp.PD,K-GH, FINASIM', nip: '19567071982111001' },
-      { nama: 'Dr. dr. Yenny Kandarini, Sp.PD, K-GH, FINASIM', nip: '196901061999032004' },
-      { nama: 'dr. Nyoman Paramita Ayu, Sp.PD, K-GH, FINASIM', nip: '198007162022212001' },
-      { nama: 'dr. Gede Wira Mahadita, M.Biomed., Sp.PD, K-GH, FINASIM', nip: '198711142023211002' },
-      { nama: 'dr. IGN. Agung Tresna Erawan, M.Biomed., Sp.PD, K-GH, FINASIM', nip: '198510192019021001' },
-      { nama: 'dr. Ni Wayan Anantika Riani, M.Biomed. SpPD, FINASIM', nip: '1988021220230823001' },
-      { nama: 'Dr.dr.I Nyoman Astika, Sp.PD-Kger, FINASIM', nip: '196502021990031002' },
-      { nama: 'Dr.dr.I Gusti Putu Suka Aryana, Sp.PD-Kger, FINASIM', nip: '197103292006041001' },
-      { nama: 'dr. Ida Bagus Putu Putrawan, Sp.PD-Kger, FINASIM', nip: '197206232009121001' },
-      { nama: 'Dr. dr. Ni Ketut Rai Purnami, Sp.PD-Kger, FINASIM', nip: '198307252018012001' },
-      { nama: 'Dr.dr. I Ketut Agus Somia, SpPD, K-PTI, FINASIM', nip: '196807011998031003' },
-      { nama: 'Dr.dr. I Made Susila Utama, SpPD, K-PTI, FINASIM', nip: '196906211998031005' },
-      { nama: 'dr. Anak Agung Ayu Yuli Gayatri, SpPD, K-PTI, FINASIM', nip: '196807022009122001' },
-      { nama: 'dr. Ni Made Dewi Dian Sukmawati, SpPD, K-PTI, FINASIM', nip: '197512282002122003' },
-      { nama: 'dr. Cokorda Agung Wahyu Purnamasidhi, M.Biomed., SpPD, FINASIM', nip: '198504042009121009' },
-      { nama: 'dr.Gede Kambayana,SpPD,K-R, FINASIM', nip: '197010102000031002' },
-      { nama: 'dr.Pande Ketut Kurniari,SpPD,K-R, FINASIM', nip: '1948122820220322001' },
-      { nama: 'dr. Dewa Ayu Kartika Tejawati, M.Biomed., SpPD, FINASIM', nip: '198507212022032001' },
-      { nama: 'dr.Ketut Suardamana,SpPD,K-AI, FINASIM', nip: '196409231995031001' },
-      { nama: 'Dr.dr.Tjokorda Istri Anom Saturti,SpPD,MARS, FINASIM', nip: '197806032010122001' },
-      { nama: 'Dr. dr. Wira Gotera, SpPD, K-EMD, FINASIM', nip: '196310201988121002' },
-      { nama: 'Dr. dr. Made Ratna Saraswati, SpPD-KEMD, FINASIM', nip: '197006272003122001' },
-      { nama: 'Dr. dr. I Made Pande Dwipayana, SpPD-KEMD, FINASIM', nip: '197704042008121004' },
-      { nama: 'dr. I Made Siswadi Semadi, M.Biomed. SpPD, K-EMD, FINASIM', nip: '198312062018011002' },
-      { nama: 'dr. IB Aditya Nugraha, M.Biomed, SpPD, FINASIM', nip: '198808232020121002' },
-      { nama: 'Dr. dr. I Ketut Mariadi, Sp.PD, K-GEH, FINASIM', nip: '197810222010121002' },
-      { nama: 'dr. Cokorde Istri Yuliandari K., M. Biomed., Sp.PD, FINASIM', nip: '198507012019032013' },
-      { nama: 'dr. Gde Somayana, Sp.PD, K-GEH, FINASIM', nip: '196402151990031004' },
-      { nama: 'dr. Dwijo Anargha Sindhughosa, SpPD', nip: '199209212024061001' },
-      { nama: 'dr. Dian Pritasari Jeger, SpPD', nip: '1988022020220422001' },
-      { nama: 'dr. Putu Gizha Satrya Gautama M, SpPD', nip: '199202172024061001' },
-      { nama: 'dr. Dekta Filantropi Esa, Sp.P.D.', nip: '199010272025061000' },
-      { nama: 'dr. Made Edwin Sridana, Sp.PD', nip: '199307212025061003' },
-      { nama: 'dr. Sandra Surya Rini, SpPD', nip: '199105142025062005' }
-    ];
+ const dosenData = [
+  // Divisi Alergi Imunologi
+  { divisi: 'Alergi Imunologi', nama: 'dr. I Ketut Suardamana, SpPD, K-AI, FINASIM', nip: '196409231995031001' },
+  { divisi: 'Alergi Imunologi', nama: 'dr. Dekta Filantropi Esa, SpPD', nip: '199010272025061000' },
+
+  // Divisi Endokrinologi dan Metabolik
+  { divisi: 'Endokrinologi dan Metabolik', nama: 'Dr. dr. Wira Gotera, SpPD, K-EMD, FINASIM', nip: '196310201988121002' },
+  { divisi: 'Endokrinologi dan Metabolik', nama: 'Dr. dr. Made Ratna Saraswati, SpPD, K-EMD, MARS, FINASIM', nip: '197006272003122001' },
+  { divisi: 'Endokrinologi dan Metabolik', nama: 'Dr. dr. I Made Pande Dwipayana, SpPD, K-EMD, FINASIM', nip: '197704042008121004' },
+  { divisi: 'Endokrinologi dan Metabolik', nama: 'dr. I Made Siswadi Semadi, M.Biomed., SpPD, K-EMD, FINASIM', nip: '198312062018011002' },
+  { divisi: 'Endokrinologi dan Metabolik', nama: 'dr. Ida Bagus Aditya Nugraha, M.Biomed, SpPD, FINASIM', nip: '198808232020121002' },
+
+  // Divisi Gastroenterologi dan Hepatologi
+  { divisi: 'Gastroenterologi dan Hepatologi', nama: 'Dr. dr. I Ketut Mariadi, SpPD, K-GEH, FACG, FINASIM', nip: '197810222010121002' },
+  { divisi: 'Gastroenterologi dan Hepatologi', nama: 'dr. Gde Somayana, SpPD, K-GEH, FINASIM', nip: '196402151990031004' },
+  { divisi: 'Gastroenterologi dan Hepatologi', nama: 'dr. Cokorde Istri Yuliandari Krisnawardani K., M.Biomed., SpPD', nip: '198507012019032013' },
+  { divisi: 'Gastroenterologi dan Hepatologi', nama: 'dr. Komang Agus Wira Nugraha, SpPD', nip: '' },
+  { divisi: 'Gastroenterologi dan Hepatologi', nama: 'dr. Dwijo Anargha Sindhughosa, SpPD', nip: '199209212024061001' },
+  { divisi: 'Gastroenterologi dan Hepatologi', nama: 'dr. Ni Wayan Wina Dharmesti, SpPD', nip: '' },
+
+  // Divisi Geriatri
+  { divisi: 'Geriatri', nama: 'Dr. dr. I Nyoman Astika, SpPD, K-Ger, FINASIM', nip: '196502021990031002' },
+  { divisi: 'Geriatri', nama: 'Dr. dr. I Gusti Putu Suka Aryana, SpPD, K-Ger, FINASIM', nip: '197103292006041001' },
+  { divisi: 'Geriatri', nama: 'dr. Ida Bagus Putu Putrawan, SpPD, K-Ger, FINASIM', nip: '197206232009121001' },
+  { divisi: 'Geriatri', nama: 'Dr. dr. Ni Ketut Rai Purnami, SpPD, K-Ger, FINASIM', nip: '198307252018012001' },
+
+  // Divisi Ginjal dan Hipertensi
+  { divisi: 'Ginjal dan Hipertensi', nama: 'Prof. Dr. dr. I Gde Raka Widiana, SpPD, K-GH, FINASIM', nip: '19567071982111001' },
+  { divisi: 'Ginjal dan Hipertensi', nama: 'Dr. dr. Yenny Kandarini, SpPD, K-GH, FINASIM', nip: '196901061999032004' },
+  { divisi: 'Ginjal dan Hipertensi', nama: 'dr. Nyoman Paramita Ayu, SpPD, K-GH, FINASIM', nip: '198007162022212001' },
+  { divisi: 'Ginjal dan Hipertensi', nama: 'dr. Gede Wira Mahadita, M.Biomed., SpPD, K-GH, FINASIM', nip: '198711142023211002' },
+  { divisi: 'Ginjal dan Hipertensi', nama: 'dr. IGN Agung Tresna Erawan, M.Biomed., SpPD, K-GH, FINASIM', nip: '198510192019021001' },
+  { divisi: 'Ginjal dan Hipertensi', nama: 'dr. Ni Wayan Anantika Riani, M.Biomed., SpPD, FINASIM', nip: '1988021220230823001' },
+  { divisi: 'Ginjal dan Hipertensi', nama: 'dr. Putu Agus Marciyasa, SpPD', nip: '' },
+
+  // Divisi Hematologi dan Onkologi Medik
+  { divisi: 'Hematologi dan Onkologi Medik', nama: 'Prof. Dr. dr. Ketut Suega, SpPD, K-HOM, FINASIM', nip: '195704061983121001' },
+  { divisi: 'Hematologi dan Onkologi Medik', nama: 'Dr. dr. I Wayan Losen Adnyana, SpPD, K-HOM, FINASIM', nip: '197101192000121002' },
+  { divisi: 'Hematologi dan Onkologi Medik', nama: 'Dr. dr. Ni Made Renny Anggreni Rena, SpPD, K-HOM, FINASIM', nip: '197807072009122001' },
+  { divisi: 'Hematologi dan Onkologi Medik', nama: 'Dr. dr. Ngakan Ketut Wira Suastika, M.Biomed., SpPD, K-HOM, FINASIM', nip: '198203032010081001' },
+  { divisi: 'Hematologi dan Onkologi Medik', nama: 'dr. Putu Imayati, SpPD, FINASIM', nip: '261211566' },
+  { divisi: 'Hematologi dan Onkologi Medik', nama: 'dr. Ni Nyoman Yunita Kusuma Bakta, SpPD', nip: '' },
+
+  // Divisi Pulmonologi dan Medik Kritis
+  { divisi: 'Pulmonologi dan Medik Kritis', nama: 'dr. I Gede Ketut Sajinadiyasa, SpPD, K-PMK, FINASIM', nip: '196805161999031001' },
+  { divisi: 'Pulmonologi dan Medik Kritis', nama: 'dr. Putu Andrika, SpPD, K-PMK, K-IC', nip: '196405251990031006' },
+  { divisi: 'Pulmonologi dan Medik Kritis', nama: 'Dr. dr. I Gusti Ngurah Bagus Artana, SpPD, K-PMK, FINASIM', nip: '197911102012121002' },
+  { divisi: 'Pulmonologi dan Medik Kritis', nama: 'Dr. dr. Tjokorda Istri Anom Saturti, SpPD, MARS, FINASIM', nip: '197806032010122001' },
+
+  // Divisi Reumatologi
+  { divisi: 'Reumatologi', nama: 'dr. Gede Kambayana, SpPD, K-R, FINASIM', nip: '197010102000031002' },
+  { divisi: 'Reumatologi', nama: 'dr. Pande Ketut Kurniari, SpPD, K-R, FINASIM', nip: '1948122820220322001' },
+  { divisi: 'Reumatologi', nama: 'dr. Dewa Ayu Kartika Tejawati, M.Biomed., SpPD, FINASIM', nip: '198507212022032001' },
+  { divisi: 'Reumatologi', nama: 'dr. Sandra Surya Rini, SpPD, FINASIM', nip: '199105142025062005' },
+
+  // Divisi Kardiologi dan Kedokteran Vaskular
+  { divisi: 'Kardiologi dan Kedokteran Vaskular', nama: 'dr. Putu Gizha Satrya Gautama M, SpPD', nip: '199202172024061001' },
+
+  // Divisi Psikosomatik dan Paliatif
+  { divisi: 'Psikosomatik dan Paliatif', nama: 'dr. Dian Pritasari Jeger, SpPD, K-PPM, FINASIM', nip: '1988022020220422001' },
+  { divisi: 'Psikosomatik dan Paliatif', nama: 'dr. Made Edwin Sridana, SpPD', nip: '199307212025061003' },
+
+  // Divisi Penyakit Tropik Infeksi
+  { divisi: 'Penyakit Tropik Infeksi', nama: 'Dr. dr. I Ketut Agus Somia, SpPD, K-PTI, FINASIM', nip: '196807011998031003' },
+  { divisi: 'Penyakit Tropik Infeksi', nama: 'Dr. dr. I Made Susila Utama, SpPD, K-PTI, FINASIM', nip: '196906211998031005' },
+  { divisi: 'Penyakit Tropik Infeksi', nama: 'Dr. dr. Anak Agung Ayu Yuli Gayatri, SpPD, K-PTI, FINASIM', nip: '196807022009122001' },
+  { divisi: 'Penyakit Tropik Infeksi', nama: 'dr. Ni Made Dewi Dian Sukmawati, SpPD, K-PTI, FINASIM', nip: '197512282002122003' },
+  { divisi: 'Penyakit Tropik Infeksi', nama: 'Dr. dr. Cokorda Agung Wahyu Purnamasidhi, M.Biomed., SpPD, FISQua, FINASIM', nip: '198504042009121009' },
+];
 
   window.addEventListener('DOMContentLoaded', () => {
     const datalist = document.getElementById('dosenList');
