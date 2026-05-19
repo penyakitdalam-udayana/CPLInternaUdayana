@@ -902,7 +902,7 @@
         <div class="k-modul-item"><div class="k-modul-dot" style="background:#2563b0;"></div>Travel Medicine I<span class="k-modul-sks">2 SKS</span></div>
         <div class="k-syarat-title" style="margin-top:16px; font-size:0.8rem; color:var(--accent-gold);">⚠ Syarat Naik ke 2A</div>
         <ul class="k-syarat-list">
-          <li>1 LK, 1 TP, Mini-PAT, Minicex, CBD, DOPS</li>
+          <li>1 LK, 1 TP, MSF-360, Minicex, CBD, DOPS</li>
           <li>Semua Modul Tahap 1 Lulus</li>
           <li>Ujian OSCE, Ujian Komprehensif 1, Ujian Proposal</li>
         </ul>
@@ -964,7 +964,7 @@
         <div class="k-modul-item"><div class="k-modul-dot" style="background:#22c55e;"></div>Modul Tugas Akhir<span class="k-modul-sks">4 SKS</span></div>
         <div class="k-syarat-title" style="margin-top:16px; font-size:0.8rem; color:var(--success);">✅ Syarat Lulus Tahap 3</div>
         <ul class="k-syarat-list">
-          <li>Mini-PAT, DOPS, CBD</li>
+          <li>MSF-360, DOPS, CBD</li>
           <li>1 Publikasi Ilmiah Terindeks</li>
           <li>Ujian Hasil Karya Akhir</li>
           <li>Ujian Nasional Kolegium</li>
@@ -1133,8 +1133,8 @@ const CPL_SHORT = [
 
 const MK_TAHAP = {
   1: ['Filsafat Ilmu','Biologi Molekuler','Metode Penelitian','Statistik','EBM','Ketrampilan Diagnosis Dasar 1','Kegawatdaruratan Dasar 1','Konsultasi Medis Dasar','Tatalaksana Pasien Rawat Inap 1','Penyusunan Laporan Kasus','Penyusunan Proposal 1','Penyusunan Proposal dan Ujian Proposal','Penyusunan Tinjauan Kepustakaan 1','Travel Medicine','Keterampilan Diagnosis Dasar Klinis 2','Mikrobiologi','Patologi Klinik','Radiologi','Nutrisi Klinik','Farmakologi Klinis','Tatalaksana Pasien Rawat Inap 2','Pengmas Semester 1-2'],
-  2: ['Psikosomatik','Gastroenterohepatologi','Kardiologi','HOM','Rematologi','Imunologi','Tropik Infeksi','Endokrin','Pulmonologi','Geriatri','Travel Medicine','Konsul Tahap II','Karya Ilmiah','Ginjal dan Hipertensi','Pengmas Semester 3-4','Pengmas Semester 5-6','Gawat Darurat 3'],
-  3: ['Gadar dan Intensive Care','Tatalaksana Pasien Rawat Jalan','Tatalaksana Pasien Rawat Inap Lanjut','Tugas Mandiri','Modul Komprehensif Akhir','Pengmas Semester 7-8','Tugas Akhir']
+  2: ['Psikosomatik','Gastroenterohepatologi','Kardiologi','HOM','Rematologi','Imunologi','Tropik Infeksi','Endokrin','Pulmonologi','Geriatri','Travel Medicine','Konsul Tahap II','Karya Ilmiah','Ginjal dan Hipertensi','Pengmas Semester 3-4','Pengmas Semester 5-6','Gawat Darurat 3','Modul Komprehensif Akhir'],
+  3: ['Gadar dan Intensive Care','Tatalaksana Pasien Rawat Jalan','Tatalaksana Pasien Rawat Inap Lanjut','Tugas Mandiri','Pengmas Semester 7-8','Tugas Akhir']
 };
 
 const CPL_MK = {
@@ -1157,38 +1157,38 @@ const CPL_MK = {
     15: [7,8,20,21]
   },
   2: {
-    0: [7,10,11,12,14,15,16],
-    1: [4,10,11,12,14,15,16],
-    2: [3,10,11,12,14,15,16],
-    3: [9,10,11,12,14,15,16],
-    4: [8,10,11,12,14,15,16],
-    5: [6,10,11,12,14,15,16],
-    6: [1,10,11,12,14,15,16],
-    7: [10,11,12,13,14,15,16],
-    8: [5,10,11,12,14,15,16],
-    9: [2,10,11,12,14,15,16],
-    10: [0,10,11,12,14,15,16],
-    11: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
+    0: [7,10,11,12,14,15,16,17],
+    1: [4,10,11,12,14,15,16,17],
+    2: [3,10,11,12,14,15,16,17],
+    3: [9,10,11,12,14,15,16,17],
+    4: [8,10,11,12,14,15,16,17],
+    5: [6,10,11,12,14,15,16,17],
+    6: [1,10,11,12,14,15,16,17],
+    7: [10,11,12,13,14,15,16,17],
+    8: [5,10,11,12,14,15,16,17],
+    9: [2,10,11,12,14,15,16,17],
+    10: [0,10,11,12,14,15,16,17],
+    11: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],
     12: [12,13,14,15],
     13: [1,2,3,4,5,6,7,8,9,12,13,14,15],
     14: [0,1,2,3,4,5,6,7,8,9,13,14,15,16],
     15: [0,1,2,3,10,11,13,14,15,16]
   },
   3: {
-    0: [0,1,2,3,4,5],
-    1: [0,1,2,3,4,5],
-    2: [0,1,2,3,4,5],
-    3: [0,1,2,3,4,5],
-    4: [0,1,2,3,4,5],
-    5: [0,1,2,3,4,5],
-    6: [0,1,2,3,4,5],
-    7: [0,1,2,3,4,5],
-    8: [0,1,2,3,4,5],
-    9: [0,1,2,3,4,5],
-    10: [0,1,2,3,4,5],
-    11: [4,5],
-    12: [5,6],
-    13: [5,6],
+    0: [0,1,2,3,4],
+    1: [0,1,2,3,4],
+    2: [0,1,2,3,4],
+    3: [0,1,2,3,4],
+    4: [0,1,2,3,4],
+    5: [0,1,2,3,4],
+    6: [0,1,2,3,4],
+    7: [0,1,2,3,4],
+    8: [0,1,2,3,4],
+    9: [0,1,2,3,4],
+    10: [0,1,2,3,4],
+    11: [4],
+    12: [4,5],
+    13: [4,5],
     14: [0],
     15: [0]
   }
@@ -1197,8 +1197,8 @@ const CPL_MK = {
 const STAGE_CONFIG = {
   '1A': { base: 1, start: 0, end: 10, name: 'Tahap 1A' },
   '1B': { base: 1, start: 11, end: 21, name: 'Tahap 1B' },
-  '2':  { base: 2, start: 0, end: 16, name: 'Tahap 2' },
-  '3':  { base: 3, start: 0, end: 6, name: 'Tahap 3' }
+  '2':  { base: 2, start: 0, end: 17, name: 'Tahap 2' },
+  '3':  { base: 3, start: 0, end: 5, name: 'Tahap 3' }
 };
 
 // ============================================================
